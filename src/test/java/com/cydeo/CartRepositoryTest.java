@@ -17,7 +17,11 @@ import java.math.BigDecimal;
 public class CartRepositoryTest {
 
     @Autowired
-    private CartRepositoryImpl cartRepository;
+    private final  CartRepositoryImpl cartRepository;
+
+    public CartRepositoryTest(CartRepositoryImpl cartRepository) {
+        this.cartRepository = cartRepository;
+    }
 
     @Test
     public void shouldAddDatabase(){
