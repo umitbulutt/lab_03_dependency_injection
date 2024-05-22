@@ -7,24 +7,23 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 
 @RunWith( SpringRunner.class )
+@Configuration
 @ContextConfiguration(classes = ConfigApp.class)
 public class CartRepositoryTest {
 
     @Autowired
-    private final  CartRepositoryImpl cartRepository;
-
-    public CartRepositoryTest(CartRepositoryImpl cartRepository) {
-        this.cartRepository = cartRepository;
-    }
+    private CartRepositoryImpl cartRepository;
 
     @Test
     public void shouldAddDatabase(){
+
         Product product = new Product();
         product.setName("milk");
         product.setPrice(new BigDecimal(12));
